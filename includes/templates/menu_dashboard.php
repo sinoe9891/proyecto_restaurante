@@ -103,6 +103,25 @@
 					</div>
 				<?php
 
+				} else if ($_SESSION["role_user"] == 4) {
+				?>
+					<ul class="navbar-nav  mx-auto ">
+						<li class="nav-item">
+							<a class="nav-link" href="menu.php">Ordenes</a>
+						</li>
+					</ul>
+					<div class="user_option">
+						<a href="" class="nav-link">
+							<p style="margin-bottom: 0;">
+								<i class="fa fa-user" aria-hidden="true"> <span style="color: white;font-family: 'Open Sans';"> Hola <?php echo $_SESSION["nombre_usuario"]; ?></span></i>
+							</p>
+						</a>
+						<a href="login.php?cerrar_sesion=true" class="order_online">
+							Cerrar Sesión
+						</a>
+					</div>
+				<?php
+
 				}
 				?>
 			</div>
