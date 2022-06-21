@@ -1,0 +1,9 @@
+.logo{
+	width: 100%;
+	max-width:150px;
+}
+p>li>span{
+	color:white;
+	font-family: 'Open Sans';
+	padding: 5px 20px;
+}
