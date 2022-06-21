@@ -54,7 +54,7 @@
 							<a class="nav-link" href="mesero.php">Inicio <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="menu.php">Ordenes</a>
+							<a class="nav-link" href="orden_mesero.php">Ordenes</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="about.php">Reservas</a>
