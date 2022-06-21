@@ -218,6 +218,16 @@ function obtenerRoles() {
         return false;
     }
 }
+function obtenerCategorias() {
+    include 'conexion.php';
+    try {
+        return $conn->query("SELECT * FROM categorias_menu");
+
+    } catch(Exception $e) {
+        echo "Error! : " . $e->getMessage();
+        return false;
+    }
+}
 
 function obtenerProy($id_proyecto)	{
 	include '../conexion.php';

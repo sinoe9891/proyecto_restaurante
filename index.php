@@ -194,7 +194,7 @@ include 'includes/conexion.php';
 	<div class="container">
 		<div class="heading_container">
 			<h2>
-				Book A Table
+				Reservación
 			</h2>
 		</div>
 		<div class="row">
@@ -202,18 +202,18 @@ include 'includes/conexion.php';
 				<div class="form_container">
 					<form action="">
 						<div>
-							<input type="text" class="form-control" placeholder="Your Name" />
+							<input type="text" class="form-control" placeholder="Nombre" />
 						</div>
 						<div>
-							<input type="text" class="form-control" placeholder="Phone Number" />
+							<input type="text" class="form-control" placeholder="Teléfono" />
 						</div>
 						<div>
-							<input type="email" class="form-control" placeholder="Your Email" />
+							<input type="email" class="form-control" placeholder="Correo" />
 						</div>
 						<div>
 							<select class="form-control nice-select wide">
 								<option value="" disabled selected>
-									How many persons?
+									Para cuantas personas?
 								</option>
 								<option value="">
 									2

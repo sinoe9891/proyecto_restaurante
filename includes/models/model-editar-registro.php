@@ -638,3 +638,56 @@ if ($accion === 'editUsuario') {
 	}
 	echo json_encode($respuesta);
 }
+
+
+
+// Menu
+//Código para crear administradores
+if ($accion === 'editMenu') {
+	date_default_timezone_set('America/Tegucigalpa');
+	$id_user = $_POST['user_id'];
+	$nombre = $_POST['nombre'];
+	$url_foto = $_POST['url_foto'];
+	$descripcion = $_POST['descripcion'];
+	$precio = $_POST['precio'];
+	$categoria = $_POST['categoria'];
+	$estado = $_POST['estado'];
+	$accion = $_POST['accion'];
+
+	//Importar la conexión
+	include '../conexion.php';
+	try {
+		$stmt = $conn->prepare("UPDATE menu SET nombre= ?, descripcion= ?, precio= ?, categoria= ?, ulr_foto= ?, estado_plato= ?  WHERE id = ?");
+		$stmt->bind_param('sssssss', $nombre, $descripcion, $precio, $categoria, $url_foto, $estado, $id_user);
+		$stmt->execute();
+		if ($stmt->affected_rows > 0) {
+			$respuesta = array(
+				'respuesta' => 'correcto',
+				'id_insertado' => $stmt->insert_id,
+				'nombre' => $nombre,
+				'precio' => $precio,
+				'tipo' => $accion
+			);
+		} else {
+			$respuesta = array(
+				'respuesta' => 'error',
+				'id_insertado' => $stmt->insert_id,
+				'nombre' => $nombre,
+				'precio' => $precio,
+				'tipo' => $accion
+			);
+		}
+
+		$stmt->close();
+		// $stmt_counter->close();
+		$conn->close();
+	} catch (Exception $e) {
+		//En caso de un error, tomar la exepción
+		$respuesta = array(
+			//Arreglo asociativo
+			'pass' => $e->getMessage(),
+			// 'pass' => $hash_password
+		);
+	}
+	echo json_encode($respuesta);
+}

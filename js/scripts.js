@@ -1,6 +1,16 @@
 addEventListener();
 // Hola
 function addEventListener() {
+	let editarUser = document.querySelector('#editarUsuario');
+	if (editarUser) {
+		editarUser.addEventListener('submit', editarUsuario);
+	}
+	let editMenu = document.querySelector('#editarMenu');
+	if (editMenu) {
+		editMenu.addEventListener('submit', editarMenu);
+	}
+
+
 	// Creación de registro
 	let evento = document.querySelector('#formulario');
 	if (evento) {
@@ -67,10 +77,7 @@ function addEventListener() {
 	if (editarLote) {
 		editarLote.addEventListener('submit', editarRegistroLote);
 	}
-	let editarUser = document.querySelector('#editarUsuario');
-	if (editarUser) {
-		editarUser.addEventListener('submit', editarUsuario);
-	}
+	
 	//Asignar Lote
 	let asignar = document.querySelector('#asignar_lote');
 	if (asignar) {
@@ -1657,6 +1664,77 @@ function editarUsuario(e) {
 							showConfirmButton: true
 						}).then(function () {
 							window.location = "usuarios.php";
+						});
+					}
+				} else {
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Hubo un error en la solicitud'
+					})
+				}
+			}
+		}
+		// Enviar la petición
+		xhr.send(datos);
+	}
+}
+function editarMenu(e) {
+	e.preventDefault();
+	console.log('llego');
+	let user_id = document.querySelector('#user_id').value,
+		nombre = document.querySelector('#nombre').value,
+		url_foto = document.querySelector('#url_foto').value,
+		descripcion = document.querySelector('#descripcion').value,
+		precio = document.querySelector('#precio').value,
+		// categoria = document.querySelector('#categoria').value,
+		tipo = document.querySelector('#tipo').value,
+		estado = document.querySelector('#estado').value;
+
+	let datos = new FormData();
+
+	datos.append('user_id', user_id);
+	datos.append('nombre', nombre);
+	datos.append('url_foto', url_foto);
+	datos.append('descripcion', descripcion);
+	datos.append('precio', precio);
+	datos.append('categoria', categoria);
+	datos.append('estado', estado);
+	datos.append('accion', tipo);
+
+	//Validar que el campo tenga algo escrito
+	if (nombre === '' || url_foto === '' || descripcion === '' || categoria === '') {
+		//validación Falló
+		Swal.fire({
+			icon: 'error',
+			title: 'Oops...',
+			text: 'Debe de llenar todos los campos'
+		});
+	} else {
+		//Crear  el llamado a Ajax
+		let xhr = new XMLHttpRequest();
+		//Abrir la Conexión
+		xhr.open('POST', 'includes/models/model-editar-registro.php', true);
+
+		//Retorno de Datos
+		xhr.onload = function () {
+			if (this.status === 200) {
+
+				//esta es la respuesta la que tenemos en el model
+				// let respuesta = xhr.responseText;
+				let respuesta = JSON.parse(xhr.responseText);
+				console.log(respuesta);
+				if (respuesta.respuesta === 'correcto') {
+					//si es un nuevo usuario 
+					if (respuesta.tipo == 'editMenu') {
+						Swal.fire({
+							icon: 'success',
+							title: 'Plato Actualizado!',
+							text: 'Esta solicitud se ha realizado con éxito',
+							position: 'center',
+							showConfirmButton: true
+						}).then(function () {
+							window.location = "ver-menu.php";
 						});
 					}
 				} else {

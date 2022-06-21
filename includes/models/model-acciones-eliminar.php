@@ -4,12 +4,12 @@ $estado = $_POST['estado'];
 $id = $_POST['id'];
 date_default_timezone_set('America/Tegucigalpa');
 //codigo eliminar solicitud
-if ($accion === 'eliminar-bloque') {
+if ($accion === 'eliminar-plato') {
 	// importar la conexion
 	include '../conexion.php';
 	try {
 		// Realizar la consulta a la base de datos
-		$stmt = $conn->prepare("DELETE FROM bloques WHERE id_bloque = ? ");
+		$stmt = $conn->prepare("DELETE FROM menu WHERE id = ? ");
 		$stmt->bind_param('s', $id);
 		$stmt->execute();
 		if ($stmt->affected_rows > 0) {

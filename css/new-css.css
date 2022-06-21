@@ -7,3 +7,12 @@ p>li>span{
 	font-family: 'Open Sans';
 	padding: 5px 20px;
 }
+.bg-primary {
+    background-color: #007bff !important;
+    color: white !important;
+}
+.btn.btn-light-secondary.me-1.mb-1 {
+    color: #fff;
+    background-color: #b4b4b4;
+    border-color: #b4b4b4;
+}

@@ -28,6 +28,16 @@ function addEventListener() {
 			}
 		});
 	}
+	let solicitudmenu = document.querySelector('.plato');
+	if (solicitudmenu) {
+		modelo = 'model-acciones-eliminar';
+		eliminar = 'eliminar-plato';
+		solicitudmenu.addEventListener('click', (event) => {
+			if (event.isTrusted) { // Valida que el evento es desencadenado por una acción manual del cliente
+				acciones(event, modelo, eliminar);
+			}
+		});
+	}
 	//Acciones de solicitudes
 	let solicitudLote = document.querySelector('.lotes');
 	if (solicitudLote) {
@@ -241,7 +251,7 @@ function acciones(e, modelo) {
 		cambiarEstado(e.target, bandera, modelo);
 	}
 	// condicion de eliminar con alert
-	if (e.target.classList.contains('fa-trash')) {
+	if (e.target.classList.contains('fa-trash-o')) {
 		Swal.fire({
 			title: 'Seguro(a)?',
 			text: "Esta acción no se puede deshacer",

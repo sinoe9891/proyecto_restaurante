@@ -23,10 +23,10 @@
 				?>
 					<ul class="navbar-nav  mx-auto ">
 						<li class="nav-item active">
-							<a class="nav-link" href="mesero.php">Inicio <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="dashboard.php">Inicio <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="menu.php">Usuarios</a>
+							<a class="nav-link" href="usuarios.php">Usuarios</a>
 						</li>
 						<!-- <li class="nav-item">
 						<a class="nav-link" href="about.php">Reservas</a>
@@ -82,10 +82,7 @@
 							<a class="nav-link" href="mesero.php">Inicio <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="menu.php">Agregar Menú</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="about.php">Editar Menú</a>
+							<a class="nav-link" href="ver-menu.php">Ver Menú</a>
 						</li>
 						<!-- <li class="nav-item">
 							<a class="nav-link" href="about.php">Editar Horarios</a>
